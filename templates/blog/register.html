@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <h2>Register</h2>
+    <form method="post" id="registerForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Register">
+    </form>
+</div>
+<script src="{% static 'blog/form_validation.js' %}"></script>
+{% endblock %}
+
+

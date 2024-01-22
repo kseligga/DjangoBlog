@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Epilepsy Forum</title>
+    <link rel="stylesheet" href="{%  static 'blog/style.css' %}">
+
+</head>
+<body>
+<div class="header">
+    <h1>Epilepsy Forum</h1>
+</div>
+<div class="navbar">
+    <a href="/homepage">Home</a>
+    <a href="/forum">Forum</a>
+    <a href="/blog">My blog</a>
+    <a href="/epilepsy-test">Free epilepsy test</a>
+    {% load i18n %}
+    {% if user.is_authenticated %}
+    <a href="/logout" class="login">Log out</a>
+    <a class="login" href="/profile/{{ request.user.username }}/">{{ request.user.username }}</a>
+    {% else %}
+    <a href="/login" class="login">{% trans 'Login' %}</a>
+    {% endif %}
+
+</div>
+
+<main>
+    <div class="main-block">
+        {% block content %}
+        dummy
+        {% endblock %}
+    </div>
+</main>
+
+</body>
+<footer>
+    {% include "blog/footer.html" %}
+</footer>
+</html>

@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <div class="subheader-text">
+        User's profile
+    </div>
+    <div class="subheader">
+        {{user.username}}
+    </div>
+    <div class="subheader-text">
+        Birthday:
+    </div>
+    {{user.userprofile.birthDate|default:"-"}}
+    <div class="subheader-text">
+        Sex:
+    </div>
+    {{user.userprofile.sex|default:"-"}}
+    <div class="subheader-text">
+        With us since:
+    </div>
+    {{user.date_joined|date:"d-m-Y H:i:s"|default:"-"}}
+    <div class="subheader-text">
+        E-mail:
+    </div>
+    {{user.email|default:"-"}}
+    <div class="subheader-text">
+        Reason I joined:
+    </div>
+    {{user.userprofile.reason|default:"-"}}
+
+
+</div>
+
+{% endblock %}

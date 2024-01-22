@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="subheader">note: if you notice disturbing symptoms, turn off this page!</div>
+
+<button>Slow</button>
+<button>Medium</button>
+<button>Fast</button>
+<button>Faster</button>
+<button>Fastest</button>
+
+
+<div class="block1"></div>
+<div class="block2"></div>
+<div class="block3"></div>
+<div class="block4"></div>
+<div class="block5"></div>
+
+<script src="{% static 'blog/epilepsy.js' %}"></script>
+{% else %}
+<div>
+    Log in to participate in a free online test!
+</div>
+{% endif %}
+
+
+{% endblock %}

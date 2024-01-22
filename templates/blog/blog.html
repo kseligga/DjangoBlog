@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+{#    komentatz #}
+<div class="subheader">
+    Welcome to admin's personal blog
+    <div class="subheader-text">
+        Here you can read my posts! Welcome :)
+    </div>
+</div>
+{% with newest_post=list_of_posts|first %}
+<div class="blog-post">
+    <div class="post-title">
+        <a href="posts/{{ newest_post.id }}">{{ newest_post.title }}</a>
+    </div>
+    <div class="blog-post-date">
+        {{ newest_post.pub_date|date:"d-m-Y H:i:s" }}
+    </div>
+    <div class="blog-post-snippet">
+        {{ newest_post.content|truncatewords:50 }}
+    </div>
+</div>
+{% endwith %}
+
+{% for post in list_of_posts|slice:"1:"%}
+<div class="blog-post">
+    <div class="post-title">
+        <a href="posts/{{ post.id }}">{{ post.title }}</a>
+    </div>
+    <div class="blog-post-date">
+        {{ post.pub_date|date:"d-m-Y H:i:s" }}
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,274 @@
+
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #ffcdf2;
+    margin: 0;
+    padding: 0;
+    background-image: url("/static/blog/banner.png");
+    background-repeat: repeat-x;
+    background-size: 300px 220px;
+
+}
+
+.header {
+    font-size: x-large;
+    font-weight: bolder;
+    position: relative;
+    top: 50px;
+    text-align: center;
+    color: #664C59;
+    white-space: nowrap;
+    margin-bottom: 130px;
+
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #664C59;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    width: 100vw;
+    transition: top 0.3s;
+    z-index: 1;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #CC97C1;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: large;
+
+}
+
+.navbar a:hover {
+    background-color: #CC97C1;
+    color: #664C59;
+}
+
+.navbar .login {
+    float: right;
+}
+
+main {
+    padding: 20px;
+    width: auto;
+}
+
+.main-block {
+    background-color: #ffffff;
+    border: 5px double #664C59;
+    border-radius: 12px;
+    width: 95%;
+    height: auto;
+    padding: 15px 15px 30px;
+    overflow-wrap: break-word;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: small;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #CC97C1;
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #664C59;
+
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="text"], .form-container input[type="password"], .form-container input[type="email"], .form-container input[type="date"] {
+
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-container input[type="submit"], .form-container a {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #664C59;
+    text-decoration: none;
+    text-align: center;
+}
+
+.blog-post {
+    border: 5px groove #CC97C1;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.blog-post a {
+    color: #bd7499;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.blog-post a:visited {
+    color: #664C59;
+}
+
+
+.blog-post-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.subheader {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px
+}
+
+.subheader-text {
+    font-weight: bold;
+    color: #888;
+    font-size: 0.8em;
+}
+
+.blog-post-snippet {
+    padding: 20px;
+}
+
+.forum-thread {
+    border: 5px groove #CC97C1;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.forum-thread a {
+    color: #bd7499;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.forum-thread a:visited {
+    color: #664C59;
+}
+
+
+.forum-thread-date {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.forum-thread-snippet {
+    padding: 20px;
+}
+
+
+.comment {
+    border: 1px solid #CC97C1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+
+.postingForm {
+    /* Style the form */
+    width: 50%;
+    margin-left: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #ccc;
+    border-radius: 5px;
+}
+
+.postingForm label {
+    /* Style the form labels */
+    display: block;
+    margin-top: 10px;
+}
+
+.postingForm input[type="text"],
+.postingForm input[type="email"],
+.postingForm textarea {
+    /* Style the text inputs and textarea */
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.postingForm input[type="submit"] {
+    /* Style the submit button */
+    padding: 10px 20px;
+    background-color: #bd7499;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.block1, .block2, .block3, .block4, .block5 {
+    height: 600px;
+}
+
+.block1 {
+    animation: blink 1s infinite;
+}
+
+.block2 {
+    animation: blink 0.75s infinite;
+}
+
+.block3 {
+    animation: blink 0.45s infinite;
+}
+
+.block4 {
+    animation: blink 0.2s infinite;
+}
+
+.block5 {
+    animation: blink 0.05s infinite;
+}
+
+@keyframes blink {
+    0% {
+        background-color: #664C59;
+    }
+    50% {
+        background-color: #CC97C1;
+    }
+    100% {
+        background-color: #664C59;
+    }
+}

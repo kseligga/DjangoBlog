@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block content %}
+<div>
+    <h2>Activate Your Account</h2>
+    <p>Hello {{ user.username }},</p>
+    <p>Thank you for registering. To activate your account, click the link below:</p>
+    <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">Activate Now</a>
+    <p>Thank you!</p>
+</div>
+{% endblock %}

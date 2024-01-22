@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+<p>{{ post.content }}</p>
+<p><em>Published: {{ post.pub_date|date:"d-m-Y H:i:s" }}</em></p>
+
+<form class="postingForm" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if user.is_authenticated %}
+    <input type="submit" value="Comment as {{ user.username }}">
+    {% else %}
+    <input type="submit" value="Submit Comment">
+    {% endif %}
+</form>
+{% if comments|length > 0 %}
+{% for comment in comments %}
+<div class="comment">
+    <strong>{{ comment.author }}</strong>
+    <p>{{ comment.content }} </p>
+    <em>{{ comment.pub_date|date:"d-m-Y H:i:s" }}</em>
+</div>
+{% endfor %}
+{% else %}
+<p>No comments yet</p>
+{% endif %}
+{% endblock %}

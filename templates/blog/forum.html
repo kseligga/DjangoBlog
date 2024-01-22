@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+{#    komentatz #}
+<div class="subheader">
+    Welcome to forum
+    <div class="subheader-text">
+        Here you can discuss!
+    </div>
+</div>
+{% if user.is_authenticated %}
+<form class="postingForm" method="post" action="/forum/">
+    {% csrf_token %}
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content"></textarea><br>
+    <input type="submit" value="Post a new thread!">
+</form>
+{% else %}
+<p>You must be logged in to post a new thread or comment.</p>
+{% endif %}
+{% with newest_thread=list_of_threads|first %}
+<div class="forum-thread">
+    <div class="thread-title">
+        <a href="threads/{{ newest_thread.id }}">{{ newest_thread.title }}</a>
+    </div>
+    <div class="forum-thread-date">
+        {{ newest_thread.pub_date|date:"d-m-Y H:i:s" }}
+    </div>
+    <div class="forum-thread-snippet">
+        {{ newest_thread.content|truncatewords:50 }}
+    </div>
+    <div class="forum-thread-author">
+        Posted by: {{ newest_thread.author}}
+    </div>
+</div>
+{% endwith %}
+
+{% for thread in list_of_threads|slice:"1:"%}
+<div class="forum-thread">
+    <div class="thread-title">
+        <a href="threads/{{ thread.id }}">{{ thread.title }}</a>
+    </div>
+    <div class="forum-thread-date">
+        {{ thread.pub_date|date:"d-m-Y H:i:s" }}
+    </div>
+    <div class="forum-thread-author">
+        Posted by: {{ thread.author}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

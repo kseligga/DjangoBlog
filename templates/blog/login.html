@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login"> <br>
+        No account?
+        <a href="/register">Register</a>
+        {% if error %}
+        <p><strong>{{ error }}</strong></p>
+        {% endif %}
+        <br>
+        <a href="/password_reset">Forgot password?</a>
+    </form>
+</div>
+{% endblock %}

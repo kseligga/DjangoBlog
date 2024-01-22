@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h2>{{ thread.title }}</h2>
+<p>{{ thread.content }}</p>
+<p><em>Published: {{ thread.pub_date|date:"d-m-Y H:i:s" }} by: {{thread.author}}</em></p>
+
+{% if user.is_authenticated %}
+<form class="postingForm" method="POST" action="{% url 'thread' thread.id %}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Comment as {{ user.username }}">
+</form>
+{% else %}
+<p>You have to log in to comment.</p>
+{% endif %}
+
+{% if responses|length > 0 %}
+{% for response in responses %}
+<div class="comment">
+    <strong>{{ response.author }}</strong>
+    <p>{{ response.content }} </p>
+    <em>{{ response.pub_date|date:"d-m-Y H:i:s" }}</em>
+</div>
+{% endfor %}
+{% else %}
+<p>No comments yet.</p>
+{% endif %}
+{% endblock %}
